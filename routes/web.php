@@ -17,8 +17,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('games')->group(function(){
     Route::get('/', [GamesController::class, 'index'])->name('games-index');
+    // Add game
     Route::get('/create', [GamesController::class, 'create'])->name('games-create');
     Route::POST('/', [GamesController::class, 'store'])->name('games-store');
+    // Edit game
+    Route::get('/{id}/edit', [GamesController::class, 'edit'])->where('id', '[0-9+]')->name('games-edit');
+    Route::put('/{id}', [GamesController::class, 'update'])->where('id', '[0-9+]')->name('games-update');
 });
 
 
