@@ -23,6 +23,8 @@ Route::prefix('games')->group(function(){
     // Edit game
     Route::get('/{id}/edit', [GamesController::class, 'edit'])->where('id', '[0-9+]')->name('games-edit');
     Route::put('/{id}', [GamesController::class, 'update'])->where('id', '[0-9+]')->name('games-update');
+    // Delete
+    Route::delete('/{id}', [GamesController::class, 'destroy'])->where('id', '[0-9+]')->name('games-destroy');
 });
 
 
